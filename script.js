@@ -373,11 +373,11 @@ After this line the code is for injection of the content to HTML
 */
 
   let homeContent = `<h2>About Me</h2>
-  <p>I am a passionate frontend developer specializing in building scalable, user-focused web applications using modern frameworks like Vue.js, React, and Angular. My journey into tech began with a background in science, equipping me with strong analytical thinking and problem-solving skills, which I seamlessly apply to crafting high-quality digital solutions.
-  </p><hr><p>My technical expertise is rooted in a hands-on approach, working with technologies like JavaScript, TypeScript, and Tailwind.CSS. I have a proven track record in delivering clean, maintainable code, implementing responsive designs, and collaborating with cross-functional teams to achieve project goals.
-  </p><hr><p>Beyond development, I thrive in dynamic environments where I can mentor junior developers, optimize workflows, and contribute to the growth of innovative solutions. My experience with CI/CD pipelines and automated testing (Cypress, Vitest) ensures that I deliver robust and high-performance applications every time.
-  </p><hr><p>In summary, my career has been defined by adaptability, continuous learning, and a commitment to excellence in frontend development. I am eager to contribute to impactful projects and help create exceptional user experiences.
-  </p>`;
+    <p>I am a skilled frontend developer with over 4.5 years of experience in designing and building scalable, maintainable web applications. My expertise lies in modern frameworks like Vue.js, React, and Angular, combined with a strong foundation in JavaScript, TypeScript, and CSS frameworks such as Tailwind.CSS and SCSS.
+    </p><hr><p>My professional journey has been shaped by delivering impactful solutions, such as reusable component libraries, optimized workflows, and high-performance applications. I specialize in state management using Pinia and Redux, responsive design, and ensuring seamless user experiences through rigorous testing with tools like Cypress and Vitest.
+    </p><hr><p>Collaboration and mentorship have been integral to my career. I have successfully guided junior developers, improved team productivity, and enhanced project outcomes by promoting best practices in code quality and maintainability. My experience with CI/CD pipelines, GitHub Actions, and version control systems ensures efficient and streamlined deployments.
+    </p><hr><p>Transitioning from a scientific background, I bring strong analytical skills, problem-solving abilities, and attention to detail to every project. I am passionate about leveraging my technical expertise to create innovative, user-centric solutions that exceed expectations and drive measurable impact.
+    </p>`;
 
   let experienceContent = `<h2>Experience</h2>
   <div>
