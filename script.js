@@ -71,7 +71,6 @@ document
     let xdaicon = document.getElementById("xda");
     let codewarsicon = document.getElementById("codewars");
     let googledevicon = document.getElementById("googledev");
-    let statcounterDigit = document.getElementById("statcounter-digit");
     // Get the computed background color
     let bgColor = getComputedStyle(root).getPropertyValue("--color-background");
     // Check the current background color and toggle the theme accordingly
@@ -90,7 +89,6 @@ document
       profile.src = "images/profpicd.png";
       xdaicon.src = "images/xda-muted.png";
       codewarsicon.src = "images/codewars-muted.png";
-      statcounterDigit.classList.add("negative-image");
       googledevicon.src = "images/google-developers-muted.png";
       // Set a timeout to change the theme toggle image back to off after 500ms
       setTimeout(function () {
@@ -114,7 +112,6 @@ document
         profile.src = "images/profpicb.png";
         xdaicon.src = "images/xda-muted-light.png";
         codewarsicon.src = "images/codewars-muted-light.png";
-        statcounterDigit.classList.remove("negative-image");
         googledevicon.src = "images/google-developers-muted-light.png";
       }, 500);
       themeToggleImage.src = "images/lamp_on.png";
@@ -160,7 +157,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let xdaicon = document.getElementById("xda");
   let codewarsicon = document.getElementById("codewars");
   let googledevicon = document.getElementById("googledev");
-  let statcounterDigit = document.getElementById("statcounter-digit");
   let contentId = localStorage.getItem("contentId");
   if (theme === "dark") {
     // Apply dark theme
@@ -178,7 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
     xdaicon.src = "images/xda-muted.png";
     codewarsicon.src = "images/codewars-muted.png";
     googledevicon.src = "images/google-developers-muted.png";
-    statcounterDigit.classList.add("negative-image");
   } else {
     // Apply light theme (or default theme)
     root.style.setProperty("--color", "#000000");
@@ -195,7 +190,6 @@ document.addEventListener("DOMContentLoaded", function () {
     xdaicon.src = "images/xda-muted-light.png";
     codewarsicon.src = "images/codewars-muted-light.png";
     googledevicon.src = "images/google-developers-muted-light.png";
-    statcounterDigit.classList.remove("negative-image");
   }
   // Call the showContent function with the stored contentId
   if (contentId) {
@@ -372,14 +366,14 @@ adjustColumnWidth();
 After this line the code is for injection of the content to HTML
 */
 
-  let homeContent = `<h2>About Me</h2>
+let homeContent = `<h2>About Me</h2>
     <p>I am a skilled frontend developer with over 4.5 years of experience in designing and building scalable, maintainable web applications. My expertise lies in modern frameworks like Vue.js, React, and Angular, combined with a strong foundation in JavaScript, TypeScript, and CSS frameworks such as Tailwind.CSS and SCSS.
     </p><hr><p>My professional journey has been shaped by delivering impactful solutions, such as reusable component libraries, optimized workflows, and high-performance applications. I specialize in state management using Pinia and Redux, responsive design, and ensuring seamless user experiences through rigorous testing with tools like Cypress and Vitest.
     </p><hr><p>Collaboration and mentorship have been integral to my career. I have successfully guided junior developers, improved team productivity, and enhanced project outcomes by promoting best practices in code quality and maintainability. My experience with CI/CD pipelines, GitHub Actions, and version control systems ensures efficient and streamlined deployments.
     </p><hr><p>Transitioning from a scientific background, I bring strong analytical skills, problem-solving abilities, and attention to detail to every project. I am passionate about leveraging my technical expertise to create innovative, user-centric solutions that exceed expectations and drive measurable impact.
     </p>`;
 
-  let experienceContent = `<h2>Experience</h2>
+let experienceContent = `<h2>Experience</h2>
   <div>
     <h3>Frontend Developer at stagedates GmbH</h3>
     <p>• Designed and implemented a reusable Vue-Quasar component library, reducing development time for features.</p>
