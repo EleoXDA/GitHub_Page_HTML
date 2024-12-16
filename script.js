@@ -6,42 +6,42 @@ function handleClick(e, contentId) {
 
 // Function to show a specific content element and hide others
 function showContent(contentId) {
-  const contentElements = document.getElementsByClassName('content');
+  const contentElements = document.getElementsByClassName("content");
   for (var i = 0; i < contentElements.length; i++) {
     if (contentElements[i].id === contentId) {
-      contentElements[i].style.display = 'block';
+      contentElements[i].style.display = "block";
     } else {
-      contentElements[i].style.display = 'none';
+      contentElements[i].style.display = "none";
     }
   }
-  localStorage.setItem('contentId', contentId);
+  localStorage.setItem("contentId", contentId);
 }
 
 // Function to adjust column width based on viewport size
 function adjustColumnWidth() {
   const viewportWidth = window.innerWidth;
-  const columnElements = document.querySelectorAll('.column');
-  const modalContent = document.querySelector('.modal-content');
+  const columnElements = document.querySelectorAll(".column");
+  const modalContent = document.querySelector(".modal-content");
 
   columnElements.forEach(function (column) {
     if (viewportWidth >= 1000) {
-      column.style.flex = '0 0 850px';
-      column.style.maxWidth = '850px';
-      modalContent.style.flex = '0 0 750px';
-      modalContent.style.maxWidth = '750px';
+      column.style.flex = "0 0 850px";
+      column.style.maxWidth = "850px";
+      modalContent.style.flex = "0 0 750px";
+      modalContent.style.maxWidth = "750px";
     } else if (viewportWidth <= 768) {
-      column.style.flex = '0 0 100%';
-      column.style.maxWidth = '720px';
-      modalContent.style.flex = '0 0 90%';
-      modalContent.style.maxWidth = '620px';
+      column.style.flex = "0 0 100%";
+      column.style.maxWidth = "720px";
+      modalContent.style.flex = "0 0 90%";
+      modalContent.style.maxWidth = "620px";
     } else {
       const width =
         720 /*width below 768px*/ +
         ((viewportWidth - 768) * 130) /*900-720*/ / 232; /*1000-768*/
-      column.style.flex = '0 0 ' + width + 'px';
-      column.style.maxWidth = width + 'px';
-      modalContent.style.flex = '0 0 ' + width - 100 + 'px';
-      modalContent.style.maxWidth = width - 100 + 'px';
+      column.style.flex = "0 0 " + width + "px";
+      column.style.maxWidth = width + "px";
+      modalContent.style.flex = "0 0 " + width - 100 + "px";
+      modalContent.style.maxWidth = width - 100 + "px";
     }
   });
 }
@@ -49,157 +49,159 @@ function adjustColumnWidth() {
 // Function to handle scroll event and show/hide the "back to top" button
 function scrollFunction() {
   if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-    document.getElementById('back-to-top').style.display = 'block';
+    document.getElementById("back-to-top").style.display = "block";
   } else {
-    document.getElementById('back-to-top').style.display = 'none';
+    document.getElementById("back-to-top").style.display = "none";
   }
 }
 
 // Function to scroll to the top of the page smoothly
 function topFunction() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 // Event listener for click on theme toggle image
 document
-  .getElementById('theme-toggle-img')
-  .addEventListener('click', function () {
+  .getElementById("theme-toggle-img")
+  .addEventListener("click", function () {
     // Get necessary elements by ID
     let root = document.documentElement;
-    let themeToggleImage = document.getElementById('theme-toggle-img');
-    let profile = document.getElementById('profpic');
-    let xdaicon = document.getElementById('xda');
-    let codewarsicon = document.getElementById('codewars');
-    let googledevicon = document.getElementById('googledev');
-    let statcounterDigit = document.getElementById('statcounter-digit');
+    let themeToggleImage = document.getElementById("theme-toggle-img");
+    let profile = document.getElementById("profpic");
+    let xdaicon = document.getElementById("xda");
+    let codewarsicon = document.getElementById("codewars");
+    let googledevicon = document.getElementById("googledev");
+    let statcounterDigit = document.getElementById("statcounter-digit");
     // Get the computed background color
-    let bgColor = getComputedStyle(root).getPropertyValue('--color-background');
+    let bgColor = getComputedStyle(root).getPropertyValue("--color-background");
     // Check the current background color and toggle the theme accordingly
-    if (bgColor.trim() == '#F2F2F2') {
+    if (bgColor.trim() == "#F2F2F2") {
       // Apply dark theme
-      root.style.setProperty('--color', '#FFFFFF');
-      root.style.setProperty('--color-background', '#000000');
-      root.style.setProperty('--color-text', '#F2F2F2');
-      root.style.setProperty('--color-button', '#a9a9a9');
-      root.style.setProperty('--color-transparent', 'rgba(256,256,256,0.3)');
+      root.style.setProperty("--color", "#FFFFFF");
+      root.style.setProperty("--color-background", "#000000");
+      root.style.setProperty("--color-text", "#F2F2F2");
+      root.style.setProperty("--color-button", "#a9a9a9");
+      root.style.setProperty("--color-transparent", "rgba(256,256,256,0.3)");
       root.style.setProperty(
-        '--color-button-text-transparent',
-        'rgba(0,0,0,0.7)'
+        "--color-button-text-transparent",
+        "rgba(0,0,0,0.7)"
       );
-      themeToggleImage.src = 'images/lamp_on.png';
-      profile.src = 'images/profpicd.png';
-      xdaicon.src = 'images/xda-muted.png';
-      codewarsicon.src = 'images/codewars-muted.png';
-      statcounterDigit.classList.add('negative-image');
-      googledevicon.src = 'images/google-developers-muted.png';
+      themeToggleImage.src = "images/lamp_on.png";
+      profile.src = "images/profpicd.png";
+      xdaicon.src = "images/xda-muted.png";
+      codewarsicon.src = "images/codewars-muted.png";
+      statcounterDigit.classList.add("negative-image");
+      googledevicon.src = "images/google-developers-muted.png";
       // Set a timeout to change the theme toggle image back to off after 500ms
       setTimeout(function () {
-        themeToggleImage.src = 'images/lamp_off.png';
+        themeToggleImage.src = "images/lamp_off.png";
       }, 500);
       // Store the current theme in localStorage
-      localStorage.setItem('theme', 'dark');
+      localStorage.setItem("theme", "dark");
     } else {
       // Set a timeout to change the theme toggle image back to on after 500ms
       setTimeout(function () {
-        root.style.setProperty('--color', '#000000');
-        root.style.setProperty('--color-background', '#F2F2F2');
-        root.style.setProperty('--color-text', '#000000');
-        root.style.setProperty('--color-button', '#888888');
-        root.style.setProperty('--color-transparent', 'rgba(0,0,0,0.3)');
+        root.style.setProperty("--color", "#000000");
+        root.style.setProperty("--color-background", "#F2F2F2");
+        root.style.setProperty("--color-text", "#000000");
+        root.style.setProperty("--color-button", "#888888");
+        root.style.setProperty("--color-transparent", "rgba(0,0,0,0.3)");
         root.style.setProperty(
-          '--color-button-text-transparent',
-          'rgba(256,256,256,0.7)'
+          "--color-button-text-transparent",
+          "rgba(256,256,256,0.7)"
         );
-        themeToggleImage.src = 'images/lamp_on2.png';
-        profile.src = 'images/profpicb.png';
-        xdaicon.src = 'images/xda-muted-light.png';
-        codewarsicon.src = 'images/codewars-muted-light.png';
-        statcounterDigit.classList.remove('negative-image');
-        googledevicon.src = 'images/google-developers-muted-light.png';
+        themeToggleImage.src = "images/lamp_on2.png";
+        profile.src = "images/profpicb.png";
+        xdaicon.src = "images/xda-muted-light.png";
+        codewarsicon.src = "images/codewars-muted-light.png";
+        statcounterDigit.classList.remove("negative-image");
+        googledevicon.src = "images/google-developers-muted-light.png";
       }, 500);
-      themeToggleImage.src = 'images/lamp_on.png';
+      themeToggleImage.src = "images/lamp_on.png";
       // Store the current theme in localStorage
-      localStorage.setItem('theme', 'light');
+      localStorage.setItem("theme", "light");
     }
   });
 
 // Get necessary elements by ID
-let tooltip = document.getElementById('tooltip');
-let themeToggleImage = document.getElementById('theme-toggle-img');
+let tooltip = document.getElementById("tooltip");
+let themeToggleImage = document.getElementById("theme-toggle-img");
 
 // Add event listener to the theme toggle image when mouse enters
-themeToggleImage.addEventListener('mouseenter', function () {
+themeToggleImage.addEventListener("mouseenter", function () {
   // Show tooltip with animation
-  tooltip.style.visibility = 'visible';
-  tooltip.style.opacity = '1';
-  tooltip.style.transition = 'all 0.25s ease-in';
+  tooltip.style.visibility = "visible";
+  tooltip.style.opacity = "1";
+  tooltip.style.transition = "all 0.25s ease-in";
   // Set a timeout to hide the tooltip after 2500ms
   setTimeout(function () {
-    tooltip.style.visibility = 'hidden';
-    tooltip.style.opacity = '0';
-    tooltip.style.transition = 'all 0.4s ease';
+    tooltip.style.visibility = "hidden";
+    tooltip.style.opacity = "0";
+    tooltip.style.transition = "all 0.4s ease";
   }, 2500);
 });
 
 // Add event listener to the theme toggle image when mouse leaves
-themeToggleImage.addEventListener('mouseleave', function () {
+themeToggleImage.addEventListener("mouseleave", function () {
   // Set a timeout to hide the tooltip after 500ms
   setTimeout(function () {
-    tooltip.style.visibility = 'hidden';
-    tooltip.style.opacity = '0';
+    tooltip.style.visibility = "hidden";
+    tooltip.style.opacity = "0";
   }, 500);
 });
 
 // Add event listener when the DOM content is loaded
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   // Get the stored theme from localStorage
-  let theme = localStorage.getItem('theme');
+  let theme = localStorage.getItem("theme");
   let root = document.documentElement;
-  let themeToggleImage = document.getElementById('theme-toggle-img');
-  let profile = document.getElementById('profpic');
-  let xdaicon = document.getElementById('xda');
-  let codewarsicon = document.getElementById('codewars');
-  let googledevicon = document.getElementById('googledev');
-  let statcounterDigit = document.getElementById('statcounter-digit');
-  let contentId = localStorage.getItem('contentId');
-  if (theme === 'dark') {
+  let themeToggleImage = document.getElementById("theme-toggle-img");
+  let profile = document.getElementById("profpic");
+  let xdaicon = document.getElementById("xda");
+  let codewarsicon = document.getElementById("codewars");
+  let googledevicon = document.getElementById("googledev");
+  let statcounterDigit = document.getElementById("statcounter-digit");
+  let contentId = localStorage.getItem("contentId");
+  if (theme === "dark") {
     // Apply dark theme
-    root.style.setProperty('--color', '#F2F2F2');
-    root.style.setProperty('--color-background', '#000000');
-    root.style.setProperty('--color-text', '#F2F2F2');
-    root.style.setProperty('--color-button', '#a9a9a9');
-    root.style.setProperty('--color-transparent', 'rgba(256,256,256,0.3)');
+    root.style.setProperty("--color", "#F2F2F2");
+    root.style.setProperty("--color-background", "#000000");
+    root.style.setProperty("--color-text", "#F2F2F2");
+    root.style.setProperty("--color-button", "#a9a9a9");
+    root.style.setProperty("--color-transparent", "rgba(256,256,256,0.3)");
     root.style.setProperty(
-      '--color-button-text-transparent',
-      'rgba(0,0,0,0.7)'
+      "--color-button-text-transparent",
+      "rgba(0,0,0,0.7)"
     );
-    themeToggleImage.src = 'images/lamp_off.png';
-    profile.src = 'images/profpicd.png';
-    xdaicon.src = 'images/xda-muted.png';
-    codewarsicon.src = 'images/codewars-muted.png';
-    googledevicon.src = 'images/google-developers-muted.png';
-    statcounterDigit.classList.add('negative-image');
+    themeToggleImage.src = "images/lamp_off.png";
+    profile.src = "images/profpicd.png";
+    xdaicon.src = "images/xda-muted.png";
+    codewarsicon.src = "images/codewars-muted.png";
+    googledevicon.src = "images/google-developers-muted.png";
+    statcounterDigit.classList.add("negative-image");
   } else {
     // Apply light theme (or default theme)
-    root.style.setProperty('--color', '#000000');
-    root.style.setProperty('--color-background', '#F2F2F2');
-    root.style.setProperty('--color-text', '#000000');
-    root.style.setProperty('--color-button', '#888888');
-    root.style.setProperty('--color-transparent', 'rgba(0,0,0,0.3)');
+    root.style.setProperty("--color", "#000000");
+    root.style.setProperty("--color-background", "#F2F2F2");
+    root.style.setProperty("--color-text", "#000000");
+    root.style.setProperty("--color-button", "#888888");
+    root.style.setProperty("--color-transparent", "rgba(0,0,0,0.3)");
     root.style.setProperty(
-      '--color-button-text-transparent',
-      'rgba(256,256,256,0.7)'
+      "--color-button-text-transparent",
+      "rgba(256,256,256,0.7)"
     );
-    themeToggleImage.src = 'images/lamp_on2.png';
-    profile.src = 'images/profpicb.png';
-    xdaicon.src = 'images/xda-muted-light.png';
-    codewarsicon.src = 'images/codewars-muted-light.png';
-    googledevicon.src = 'images/google-developers-muted-light.png';
-    statcounterDigit.classList.remove('negative-image');
+    themeToggleImage.src = "images/lamp_on2.png";
+    profile.src = "images/profpicb.png";
+    xdaicon.src = "images/xda-muted-light.png";
+    codewarsicon.src = "images/codewars-muted-light.png";
+    googledevicon.src = "images/google-developers-muted-light.png";
+    statcounterDigit.classList.remove("negative-image");
   }
   // Call the showContent function with the stored contentId
   if (contentId) {
     showContent(contentId);
+  } else {
+    showContent("home");
   }
 });
 
@@ -208,9 +210,9 @@ let observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
+        entry.target.style.opacity = "1";
       } else {
-        entry.target.style.opacity = '0';
+        entry.target.style.opacity = "0";
       }
     });
   },
@@ -218,93 +220,93 @@ let observer = new IntersectionObserver(
 );
 
 // Apply the observer to all elements with class 'column'
-document.querySelectorAll('.column').forEach((section) => {
-  section.style.opacity = '0';
-  section.style.transition = 'opacity 0.73s ease';
+document.querySelectorAll(".column").forEach((section) => {
+  section.style.opacity = "0";
+  section.style.transition = "opacity 0.73s ease";
   observer.observe(section);
 });
 
-const googledevicon = document.getElementById('googledev');
-const xdaicon = document.getElementById('xda');
-const codewarsicon = document.getElementById('codewars');
+const googledevicon = document.getElementById("googledev");
+const xdaicon = document.getElementById("xda");
+const codewarsicon = document.getElementById("codewars");
 
 // Add event listener when mouse is over the googledev icon
-googledevicon.addEventListener('mouseover', function () {
-  googledevicon.src = 'images/google-developers.png';
+googledevicon.addEventListener("mouseover", function () {
+  googledevicon.src = "images/google-developers.png";
 });
 
 // Add event listener when mouse leaves the googledev icon
-googledevicon.addEventListener('mouseout', function () {
-  const theme = localStorage.getItem('theme');
-  if (theme === 'dark') {
-    googledevicon.src = 'images/google-developers-muted.png';
+googledevicon.addEventListener("mouseout", function () {
+  const theme = localStorage.getItem("theme");
+  if (theme === "dark") {
+    googledevicon.src = "images/google-developers-muted.png";
   } else {
-    googledevicon.src = 'images/google-developers-muted-light.png';
+    googledevicon.src = "images/google-developers-muted-light.png";
   }
 });
 
 // Add event listener when mouse is over the xda icon
-xdaicon.addEventListener('mouseover', function () {
-  xdaicon.src = 'images/xda.png';
+xdaicon.addEventListener("mouseover", function () {
+  xdaicon.src = "images/xda.png";
 });
 
 // Add event listener when mouse leaves the xda icon
-xdaicon.addEventListener('mouseout', function () {
-  const theme = localStorage.getItem('theme');
-  if (theme === 'dark') {
-    xdaicon.src = 'images/xda-muted.png';
+xdaicon.addEventListener("mouseout", function () {
+  const theme = localStorage.getItem("theme");
+  if (theme === "dark") {
+    xdaicon.src = "images/xda-muted.png";
   } else {
-    xdaicon.src = 'images/xda-muted-light.png';
+    xdaicon.src = "images/xda-muted-light.png";
   }
 });
 
 // Add event listener when mouse is over the codewars icon
-codewarsicon.addEventListener('mouseover', function () {
-  codewarsicon.src = 'images/codewars.png';
+codewarsicon.addEventListener("mouseover", function () {
+  codewarsicon.src = "images/codewars.png";
 });
 
 // Add event listener when mouse leaves the codewars icon
-codewarsicon.addEventListener('mouseout', function () {
-  const theme = localStorage.getItem('theme');
-  if (theme === 'dark') {
-    codewarsicon.src = 'images/codewars-muted.png';
+codewarsicon.addEventListener("mouseout", function () {
+  const theme = localStorage.getItem("theme");
+  if (theme === "dark") {
+    codewarsicon.src = "images/codewars-muted.png";
   } else {
-    codewarsicon.src = 'images/codewars-muted-light.png';
+    codewarsicon.src = "images/codewars-muted-light.png";
   }
 });
 
 // Add event listener to window resize event
-window.addEventListener('resize', adjustColumnWidth);
+window.addEventListener("resize", adjustColumnWidth);
 
 // Add event listener to all anchor elements with href starting with '#'
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener('click', function (e) {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
 
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth',
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
     });
   });
 });
 
 // Get the modal element and other related elements
-let modal = document.getElementById('myModal');
-let btns = document.querySelectorAll('.project.button');
-let span = document.getElementsByClassName('close')[0];
-let projectLinkBtn = document.getElementById('project-link-btn');
-let repoLinkBtn = document.getElementById('repo-link-btn'); // New line
-let readmeContent = document.getElementById('readme-content');
+let modal = document.getElementById("myModal");
+let btns = document.querySelectorAll(".project.button");
+let span = document.getElementsByClassName("close")[0];
+let projectLinkBtn = document.getElementById("project-link-btn");
+let repoLinkBtn = document.getElementById("repo-link-btn"); // New line
+let readmeContent = document.getElementById("readme-content");
 
 // Add event listener to the document body to handle project button clicks
-document.body.addEventListener('click', function (e) {
+document.body.addEventListener("click", function (e) {
   // Find the closest ancestor element with class 'project.button'
-  const btn = e.target.closest('.project.button');
+  const btn = e.target.closest(".project.button");
   if (btn) {
-    modal.style.display = 'block';
+    modal.style.display = "block";
     projectLinkBtn.href = btn.dataset.projectLink;
     repoLinkBtn.href = btn.dataset.repoLink;
     // Extract the project name from the link
-    let parts = btn.dataset.projectLink.split('/');
+    let parts = btn.dataset.projectLink.split("/");
     let projectName = parts[parts.length - 2];
     // Generate the repository URL based on the project name
     let repoUrl = `https://github.com/EleoXDA/${projectName}`;
@@ -326,13 +328,13 @@ document.body.addEventListener('click', function (e) {
 
 // Add event listener to the close button in the modal
 span.onclick = function () {
-  modal.style.display = 'none';
+  modal.style.display = "none";
 };
 
 // Add event listener to the window when clicked outside the modal
 window.onclick = function (event) {
   if (event.target == modal) {
-    modal.style.display = 'none';
+    modal.style.display = "none";
   }
 };
 
@@ -340,9 +342,9 @@ let converter = new showdown.Converter();
 
 // Function to fetch and display the README content for a project
 function fetchReadme(projectLink) {
-  let parts = projectLink.split('/');
+  let parts = projectLink.split("/");
   let projectName = parts[parts.length - 2];
-  let branch = projectName === 'portfolio' ? 'gh-pages' : 'master';
+  let branch = projectName === "portfolio" ? "gh-pages" : "master";
   let url = `https://raw.githubusercontent.com/EleoXDA/${projectName}/${branch}/README.md`;
 
   // Fetch the README content using the provided URL
@@ -354,9 +356,9 @@ function fetchReadme(projectLink) {
       readmeContent.innerHTML = html;
     })
     .catch((error) => {
-      console.error('Error:', error);
+      console.error("Error:", error);
       // Display an error message if the README content cannot be fetched
-      readmeContent.innerHTML = 'Error loading README';
+      readmeContent.innerHTML = "Error loading README";
     });
 }
 
@@ -370,105 +372,120 @@ adjustColumnWidth();
 After this line the code is for injection of the content to HTML
 */
 
-let homeContent = `<h2>About Me</h2>
-<p>As a detail-oriented and versatile software developer, I have honed my skills in both the development and testing phases of web and mobile applications. With a proven background in QA, my testing expertise spans across multiple testing frameworks including RSpec, Widget Tester Jest and etc; my development expertise spans across mobile development (Kotlin, Flutter) and Web development (Javascript, Typescript, Ruby and etc).   
-</p><hr><p>My pursuit of knowledge and technical skills led me to Le Wagon Coding Bootcamp, a transformative experience that certified me as a Web Developer. This immersive program introduced me to a variety of programming languages, such as Ruby on Rails, JavaScript, and CSS, effectively preparing me for a dynamic career in the tech industry. Upon completion of the bootcamp, I took up a freelance role as a Junior Developer with XDA-Developers, leveraging my newly acquired skills to develop web, Android, and cross-platform applications.
-</p><hr><p>Furthering my career, I embraced the opportunity to work as a Junior Cross-Platform Developer with koviko GmbH. During this tenure, I spearheaded the development of a German language learning app using Flutter/Dart, demonstrating my ability to work with cross-platform mobile frameworks and languages. Additionally, my role involved using the PHP backend with the Yii framework and performing application testing using Widget Tester, ultimately consolidating my experience in project management and software development.
-</p><hr><p>In summary, my career journey has been characterized by continuous learning, versatility, and a commitment to excellence. With my extensive skills in software development, testing, and project management, I am eager to contribute to a new position, where I can continue to ensure the delivery of high-quality software solutions.
-</p>`;
+  let homeContent = `<h2>About Me</h2>
+  <p>I am a passionate frontend developer specializing in building scalable, user-focused web applications using modern frameworks like Vue.js, React, and Angular. My journey into tech began with a background in science, equipping me with strong analytical thinking and problem-solving skills, which I seamlessly apply to crafting high-quality digital solutions.
+  </p><hr><p>My technical expertise is rooted in a hands-on approach, working with technologies like JavaScript, TypeScript, and Tailwind.CSS. I have a proven track record in delivering clean, maintainable code, implementing responsive designs, and collaborating with cross-functional teams to achieve project goals.
+  </p><hr><p>Beyond development, I thrive in dynamic environments where I can mentor junior developers, optimize workflows, and contribute to the growth of innovative solutions. My experience with CI/CD pipelines and automated testing (Cypress, Vitest) ensures that I deliver robust and high-performance applications every time.
+  </p><hr><p>In summary, my career has been defined by adaptability, continuous learning, and a commitment to excellence in frontend development. I am eager to contribute to impactful projects and help create exceptional user experiences.
+  </p>`;
 
-let experienceContent = `<h2>Experience</h2>
+  let experienceContent = `<h2>Experience</h2>
+  <div>
+    <h3>Frontend Developer at stagedates GmbH</h3>
+    <p>• Designed and implemented a reusable Vue-Quasar component library, reducing development time for features.</p>
+    <p>• Reengineered critical workflows, including authorization and a revamped guest checkout flow, increasing signup rates and boosting sales conversions by 25% (reported after release of feature in production flow)</p>
+    <p>• Optimized Vue-Router & added responsive design, improving page load speed and securing role-based routes.</p>
+    <p>• Leveraged state management (Pinia) for admin and user workflows, ensuring seamless page transitions (e.g. agent-side checkout, authentication) with 0 data loss incidents reported thus far.</p>
+    <p>• Mentored 2 junior frontend developers, improving their technical skills and reducing code review turnaround.</p>
+    <p>• Utilized 20 unit tests (vitest) for release workflow in GitHub, with 32 more robust integration tests (Cypress).</p>
+    <p>• Developed messaging functionality for promoters to contact ticket owners, reducing customer support inquires.</p>
+    <p>• Improved repository structure and optimized Git workflows with caching, reducing deployment time by 30%.</p></div>
+  <hr>
+  <div>
+    <h3>Frontend Developer (Volunteer) at Digital Dignity - Am I in Porn?</h3>
+    <p>• Created a responsive web app using Vue.js and Nuxt.js to enhance online safety and usability on both mobile and desktop platforms.</p>
+    <p>• Optimized frontend to securely handle live image submissions while preventing misuse in workflows.</p>
+    <p>• Cooperated with backend team to integrate real-time face detection services, aiding accurate face identification.</p>
+    <p>• Worked closely with UI designers and backend engineers to deliver a secure and user-friendly platform.</p>
+  </div>
+<hr>
 <div>
-  <h3>Junior Cross-Platform Developer at koviko GmbH</h3>
-  <p>Responsible for building a cross-platform app for learning German language using Flutter/Dart and PHP backend with Yii framework.</p>
+  <h3>Frontend Developer at koviko GmbH</h3>
+  <p>• Implemented a usage statistics page to help managers track staff language proficiency progression in real-time.</p>
+  <p>• Designed and integrated a greeting page with user-focused signup/sign-in flows and terms acceptance using Hive database.</p>
+  <p>• Fixed over 30 app bugs within 6 months, improving overall app stability and increasing user satisfaction ratings by 15%.</p>
+  <p>• Developed a notification system to inform users about app updates, increasing engagement with new features.</p>
 </div>
 <hr>
 <div>
-  <h3>Junior Developer at XDA-Developers</h3>
-  <p>Worked on Web, Android, and cross-platform app development using Ruby (on Rails), JavaScript, Typescript and Flutter.</p>
-</div>
-<hr>
-<div>
-  <h3>Research Assistant/Project Responsible at Friedrich Schiller University of Jena</h3>
-  <p>Increased effectivity of CPU and GPU preparation on silicon chips. Managed project budget for 30 months and increased cost effectivity by 15%. Demonstrated strong writing skills in original correspondence and reports.</p>
-</div>
-<hr>
-<div>
-  <h3>Junior Mobile Developer at recruiT</h3>
-  <p>Modified mobile android applications using Kotlin and smali language. Tested applications using JUnit, adapted the app for fur. Prepared, rewrote, and edited parts of apps' user interfaces using UI/UX tools.</p>
-</div>
-<hr>
-<div>
-  <h3>MSc. Researcher/Project Responsible at Middle East Technical University</h3>
-  <p>Involved in silicon chip manufacturing and MEMS for automated testing. Validated incoming data to check information accuracy and integrity while locating and correcting concerns. Published research and review papers in peer-reviewed scientific journals.</p>
-</div>`;
+  <h3>Web Developer (Frontend) at Friedrich Schiller University of Jena</h3>
+  <p>• Designed and developed interactive frontend components for web apps using HTML, CSS, and vanilla JavaScript.</p>
+  <p>• Migrated static web pages to dynamic content using JavaScript, reducing maintenance overhead by 30%.</p>
+  <p>• Developed a student portal for managing course enrollments and grades, integrating with a MySQL database.</p>
+  <p>• Worked with academic staff to design a knowledge-sharing platform with dynamic updates using JavaScript.</p>
+  <p>• Enhanced website performance through image optimization/compression & improved SEO keyword targeting.</p>
+  <p>• Collaborated with academic stakeholders to identify key application needs and adjust the app appropriately.</p>
+  <p>• Created reusable HTML templates for university departments, standardizing design & reducing duplication.</p></div>`;
 
 let educationContent = `<h2>Education</h2>
 <div>
   <h3>Le Wagon Coding Bootcamp - Web Development</h3>
-  <p>9-week full-time intensive coding bootcamp learning HTML, CSS, Bootstrap, 
-    <br>JavaScript ES6, SQL, Git, GitHub, Heroku and Ruby on Rails.</p>
+  <p>9-week intensive program covering HTML, CSS, Bootstrap, JavaScript ES6, Git, and Ruby on Rails.</p>
+  <p>Focused on building modern, responsive web applications.</p>
 </div>
 <hr>
 <div>
   <h3>Master of Science: Micro and Nanotechnology</h3>
-  <p>Development of silicon chips and MEMS devices for automated testing.</p>
+  <p>Developed expertise in project management, data analysis, and problem-solving through interdisciplinary research, skills now applied to debugging and optimization in web development.</p>
 </div>
 <hr>
 <div>
   <h3>Bachelor of Science: Biology</h3>
-  <p>Basics of scientific research - introduction to general scientific applications.</p>
+  <p>Gained a foundation in scientific research, result evaluation, and statistical analysis, forming the analytical skills crucial to software development.</p>
 </div>`;
 
 let softContent = `<h2 id='softh2'>Software Proficiency</h2>
 <hr id='softhr'>
 <div class="category">
 <div class="section">
-  <h3>Development</h3>
+  <h3>Frontend Development</h3>
   <ul>
-    <li><u>Web Development:</u><ul>Javascript-Typescript (Vue.JS, Node.JS), CSS(Sass, SCSS), HTML</ul></li>
-    <li><u>Server-side Scripting:</u><ul>Ruby (Ruby on Rails), PHP (Yii)</ul></li>
-    <li><u>Mobile Development:</u><ul>Kotlin (Ktor), Dart (Flutter)</ul></li>
-    <li><u>Agile Development:</u><ul>Kanban, Jira, Scrum</ul></li>
+    <li><u>Core Technologies:</u><ul>HTML, CSS (Sass, SCSS, Tailwind.CSS), JavaScript (ES6+), TypeScript</ul></li>
+    <li><u>Frontend Frameworks and Libraries:</u><ul>Vue.js (Nuxt.js, Pinia), React.js (Next.js), Quasar</ul></li>
+    <li><u>State Management:</u><ul>Pinia, Redux</ul></li>
+    <li><u>Build Tools and Package Managers:</u><ul>npm, Yarn, Vite, Webpack</ul></li>
+    <li><u>Testing:</u><ul>Vitest, Cypress</ul></li>
+    <li><u>Design and Prototyping Tools:</u><ul>Figma</ul></li>
   </ul>
   <hr>
-  </div>
-  <div class="section">
-  <h3>Testing and Version Control</h3>
-  <ul>
-    <li><u>Test Frameworks:</u><ul>Javascript(Jest, Jasmine, Mocha), Ruby (RSpec), Flutter (Widget Tester), Kotlin (JUnit, Espresso), PHP (PHPUnit), Web (Selenium)</ul></li>
-    <li><u>Integrated Development Environments (IDEs):</u><ul>Visual Studio Code, IntelliJ IDEA, Android Studio</ul></li>
-    <li><u>Version Control Systems (VCS):</u><ul>Git (Platforms: GitHub, GitLab, Bitbucket)</ul></li>
-  </ul>
-  <hr>
-  </div>
-  <div class="section">
-  <h3>Design and Database Management</h3>
-  <ul>
-    <li><u>Prototype tools:</u><ul>Figma, Adobe XD, Sketch</ul></li>
-    <li><u>Databases and Database Tools:</u><ul>MySQL, MariaDB, Redis, DB Browser, SQL, SQLite, PostgreSQL, pgAdmin, phpMyAdmin</ul></li>
-  </ul>
-  <hr>
-  </div>
-  <div class="section">
-  <h3>Command Line, Build Tools, and API Testing</h3>
-  <ul>
-    <li><u>Command Line Interface (CLI):</u><ul>Bash, Powershell, Command Prompt, Terminal</ul></li>
-    <li><u>Build Tools and Package Managers:</u><ul>npm, Yarn, Webpack, Gradle, Maven, Rake</ul></li>
-    <li><u>API Testing Tools:</u><ul>Postman</ul></li>
-  </ul>
-  <hr>
-  </div>
-  <div class="section">
-  <h3>Containerization, Cloud, and Continuous Integration</h3>
-  <ul>
-    <li><u>Containerization and Virtualization Tools:</u><ul>Docker, VMWare</ul></li>
-    <li><u>Cloud Platforms:</u><ul>Google Cloud, AWS (novice)</ul></li>
-    <li><u>Continuous Integration/Continuous Deployment (CI/CD) Tools:</u><ul>Jenkins, GitHub Actions</ul></li>
-  </ul>
-  </div>
 </div>
+
+<div class="section">
+  <h3>Backend Communication and API Testing</h3>
+  <ul>
+    <li><u>RESTful APIs:</u><ul>Design, integration, and testing with Postman</ul></li>
+    <li><u>GraphQL:</u><ul>Querying and integration</ul></li>
+    <li><u>Authentication:</u><ul>JWT, OAuth2</ul></li>
+  </ul>
+  <hr>
 </div>
+
+<div class="section">
+  <h3>Version Control and Agile Development</h3>
+  <ul>
+    <li><u>Version Control Systems:</u><ul>Git (Platforms: GitHub, GitLab)</ul></li>
+    <li><u>Agile Methodologies:</u><ul>Kanban, Scrum, Jira</ul></li>
+  </ul>
+  <hr>
+</div>
+
+<div class="section">
+  <h3>Testing and Automation</h3>
+  <ul>
+    <li><u>Frontend Testing Tools:</u><ul>Vitest, Cypress</ul></li>
+    <li><u>API Testing:</u><ul>Postman</ul></li>
+    <li><u>Continuous Integration/Continuous Deployment (CI/CD):</u><ul>GitHub Actions</ul></li>
+  </ul>
+  <hr>
+</div>
+
+<div class="section">
+  <h3>Containerization and Hosting</h3>
+  <ul>
+    <li><u>Containerization Tools:</u><ul>Docker</ul></li>
+    <li><u>Hosting Platforms:</u><ul>Vercel, Netlify</ul></li>
+  </ul>
+</div></div>
 </div>`;
 
 let langContent = `<h2>Language Proficiency</h2>
@@ -558,24 +575,13 @@ let skills = `<h2 id='softh2'>Skills and Tools</h2>
     </tr>
   </thead>
   <tbody>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"/><br>JavaScript</td>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"/><br>TypeScript</td>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"/><br>Node. JS</td>
-   <td><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg"/><br>Vue. JS</td>
-   <td><img src="images/react.svg"/><br>React. JS</td>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg"/><br>Svelte</td>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"/><br>CSS</td>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"/><br>Bootstrap</td>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"/><br>HTML</td>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"/><br>Dart</td>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"/><br>Flutter</td>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"/><br>Kotlin</td>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg"/><br>Ruby</td>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-original-wordmark.svg"/><br>Rails</td>
-   <td><img src="images/php.svg"/><br>PHP</td>
-   <td><img src="images/yii.svg"/><br>Yii</td>
-   <td><img src="images/mongodb.svg"/><br>MongoDB</td>
-   <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"/><br>PostgreSQL</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"/><br>JavaScript</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"/><br>TypeScript</td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg"/><br>Vue JS</td>
+    <td><img src="images/nuxt.svg"/><br>Nuxt JS</td>
+    <td><img src="images/react.svg"/><br>React JS</td>
+    <td><img src="images/next-js.svg"/><br>Next JS</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"/><br>CSS</td>
   </tbody>
 </table>
 <hr id='softhr'>
@@ -586,34 +592,34 @@ let skills = `<h2 id='softh2'>Skills and Tools</h2>
     </tr>
   </thead>
   <tbody>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg"/><br>WebPack</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg"/><br>Heroku</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"/><br>Figma</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/><br>Git</td>
-  <td><img src="images/github.svg"/><br>GitHub</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"/><br>GitLab</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg"/><br>Android Studio</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg"/><br>IntelliJ</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"/><br>VSCode</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg"/><br>Visual Studio</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg"/><br>Vim</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"/><br>Google Cloud</td>
-  <td><img src="images/codepen.svg"/><br>CodePen</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/><br>Docker</td>
-  <td><img src="images/postman.svg"/><br>Postman</td>
-  <td><img src="images/xampp.svg"/><br>XAMPP</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg"/><br>ESLint</td>
-  <td><img src="images/gradle.svg"/><br>Gradle</td>
-  <td><img src="images/jenkins.svg"/><br>Jenkins</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetbrains/jetbrains-original.svg"/><br>JetBrains</td>
-  <td><img src="images/scrum.svg"/><br>Scrum</td>
-  <td><img src="https://user-images.githubusercontent.com/27622683/192119213-9a958b20-d3ba-460e-935f-dccb6a3de7e6.png"/><br>Kanban</td>
-  <td><img src="images/tdd.png"/><br>T.D.D.</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"/><br>Jira</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/yarn/yarn-original.svg"/><br>Yarn</td>
-  <td><img src="images/bash.svg"/><br>Bash</td>
-  <td><img src="images/markdown.svg"/><br>Markdown</td>
-</tbody>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg"/><br>WebPack</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg"/><br>Heroku</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"/><br>Figma</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/><br>Git</td>
+    <td><img src="images/github.svg"/><br>GitHub</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"/><br>GitLab</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg"/><br>Android Studio</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg"/><br>IntelliJ</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"/><br>VSCode</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg"/><br>Visual Studio</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg"/><br>Vim</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"/><br>Google Cloud</td>
+    <td><img src="images/codepen.svg"/><br>CodePen</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/><br>Docker</td>
+    <td><img src="images/postman.svg"/><br>Postman</td>
+    <td><img src="images/xampp.svg"/><br>XAMPP</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg"/><br>ESLint</td>
+    <td><img src="images/gradle.svg"/><br>Gradle</td>
+    <td><img src="images/jenkins.svg"/><br>Jenkins</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetbrains/jetbrains-original.svg"/><br>JetBrains</td>
+    <td><img src="images/scrum.svg"/><br>Scrum</td>
+    <td><img src="https://user-images.githubusercontent.com/27622683/192119213-9a958b20-d3ba-460e-935f-dccb6a3de7e6.png"/><br>Kanban</td>
+    <td><img src="images/tdd.png"/><br>T.D.D.</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"/><br>Jira</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/yarn/yarn-original.svg"/><br>Yarn</td>
+    <td><img src="images/bash.svg"/><br>Bash</td>
+    <td><img src="images/markdown.svg"/><br>Markdown</td>
+  </tbody>
 </table>
 <hr id='softhr'>
 <table>
@@ -622,23 +628,24 @@ let skills = `<h2 id='softh2'>Skills and Tools</h2>
       <th>Operating Systems</th>
     </tr>
   </thead>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg"/><br>Windows</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"/><br>Linux</td>
-  <td><img src="images/mac.svg"/><br>MacOS</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg"/><br>Android</td>
-  <td><img src="images/ios.svg"/><br>iOS</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg"/><br>Ubuntu</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-plain.svg"/><br>Debian</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fedora/fedora-plain.svg"/><br>Fedora</td>
-  <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg"/><br>ChromeOS</td>
-</tbody>
+  <tbody>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg"/><br>Windows</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"/><br>Linux</td>
+    <td><img src="images/mac.svg"/><br>MacOS</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg"/><br>Android</td>
+    <td><img src="images/ios.svg"/><br>iOS</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg"/><br>Ubuntu</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-plain.svg"/><br>Debian</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fedora/fedora-plain.svg"/><br>Fedora</td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg"/><br>ChromeOS</td>
+  </tbody>
 </table>
 <hr id='softhr'>
 </div>`;
-document.getElementById('projects').innerHTML = projects;
-document.getElementById('lang').innerHTML = langContent;
-document.getElementById('soft').innerHTML = softContent;
-document.getElementById('education').innerHTML = educationContent;
-document.getElementById('experience').innerHTML = experienceContent;
-document.getElementById('home').innerHTML = homeContent;
-document.getElementById('skills').innerHTML = skills;
+document.getElementById("projects").innerHTML = projects;
+document.getElementById("lang").innerHTML = langContent;
+document.getElementById("soft").innerHTML = softContent;
+document.getElementById("education").innerHTML = educationContent;
+document.getElementById("experience").innerHTML = experienceContent;
+document.getElementById("home").innerHTML = homeContent;
+document.getElementById("skills").innerHTML = skills;

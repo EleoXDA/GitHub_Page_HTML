@@ -1,14 +1,17 @@
 html {
   overflow-y: scroll;
 }
+
 body,
 .project-name,
 .hyperlink-in-projects {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 button:hover {
   background-color: var(--color-text);
 }
+
 h1,
 h2,
 h3,
@@ -19,37 +22,45 @@ p,
 ul {
   font-family: 'Arima', cursive;
 }
+
 h2,
 #softhr,
-.section > h3,
+.section>h3,
 th,
 #theme-toggle-img,
 .portfolio-sections ul {
   margin-top: 0px;
 }
+
 h1 {
   font-size: 30px;
 }
+
 h2 {
   font-size: 24px;
 }
+
 h3,
 h4,
 h5 {
   font-size: 16px;
 }
+
 h6,
 p,
 ul {
   font-size: 14px;
 }
+
 tr {
   flex-wrap: wrap;
 }
+
 th,
 td {
   border-radius: 15px;
 }
+
 th,
 .navbar-brand,
 .navbar-brand-muted,
@@ -57,18 +68,23 @@ th,
 #contact-me-text {
   padding: 0px;
 }
+
 ::-webkit-scrollbar {
   width: 5px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-background);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--color-button);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text);
 }
+
 .navbar-container,
 .navigation,
 .row,
@@ -87,27 +103,34 @@ tr,
 .mail {
   justify-content: center;
 }
+
 .active {
   display: block;
 }
+
 .navbar-brand {
   color: var(--color-text);
 }
+
 .profile-picture {
   box-shadow: 2px 2px 10px var(--color-button);
 }
+
 .section {
   break-inside: avoid;
 }
+
 .paragraph {
   margin: 1em 0;
 }
+
 .fa-github,
 .fa-linkedin-in,
 .mail,
 .navbar-brand-muted {
   color: var(--color-button);
 }
+
 .navbar-shortcuts,
 button,
 .project-name,
@@ -115,6 +138,7 @@ button,
 .tooltip {
   color: var(--color-background);
 }
+
 .navbar-container,
 .navigation,
 .row,
@@ -132,9 +156,11 @@ tr,
 #footer-group {
   display: flex;
 }
+
 .button-group {
   gap: 10px;
 }
+
 button,
 tr,
 .top-section,
@@ -156,24 +182,31 @@ tr,
 #statcounter-text {
   align-items: center;
 }
+
 .button-group {
   gap: 10px;
 }
+
 .portfolio-sections h2 {
   font-weight: 900;
 }
+
 .fa-github:hover {
   color: var(--color-text);
 }
+
 .fa-linkedin-in:hover {
   color: #0077b7;
 }
+
 .fa-envelope-open:hover {
   color: rgb(60, 180, 60);
 }
+
 .spacer {
   color: white;
 }
+
 .top-section,
 .info,
 .profile,
@@ -181,34 +214,42 @@ tr,
 .contact-row {
   grid-gap: 0px;
 }
+
 .content {
   display: none;
 }
+
 .column,
 .content,
-.portfolio-sections > div,
+.portfolio-sections>div,
 .modal-content {
   padding: 20px;
 }
+
 .column,
 .modal-content,
 .modalbtn,
 button,
-.portfolio-sections > div {
+.portfolio-sections>div {
   border-radius: 20px;
 }
+
 .navbar-brand-muted {
   font-weight: 500;
 }
+
 .project-name {
   margin: 5px;
 }
+
 .profile {
   grid-area: 1 / 1;
 }
+
 .portfolio-sections ul {
   font-weight: 400;
 }
+
 .navbar-brand,
 .navbar-brand-muted,
 #find-me-text,
@@ -219,41 +260,50 @@ table,
 .modalbtn {
   text-align: center;
 }
-.footer p > a {
+
+.footer p>a {
   color: var(--color);
 }
+
 .theme-toggle,
 #theme-toggle-img,
 .navbar-container,
 .navigation {
   position: relative;
 }
+
 .theme-toggle {
   display: inline-block;
 }
+
 .modalbtn,
 #back-to-top,
 .project.button,
 #theme-toggle-img {
   cursor: pointer;
 }
+
 .modal-header {
   align-items: flex-start;
 }
+
 .navbar-brand,
 .navbar-brand-muted,
 #find-me-text {
   margin: 0px;
 }
+
 #footer-group,
 .modal-header,
 .info {
   justify-content: space-between;
 }
+
 #resume,
-.footer p > a {
+.footer p>a {
   text-decoration: double underline;
 }
+
 #resume,
 .navbar-brand,
 .navbar-brand-muted,
@@ -262,21 +312,26 @@ table,
 #myModal a {
   font-weight: bold;
 }
+
 #back-to-top:hover {
   background-color: rgba(128, 128, 128, 1);
 }
+
 #footer {
   margin-bottom: 0px;
 }
+
 #softh2,
 #softhr,
 th,
 td {
   margin-bottom: 20px;
 }
+
 #statcounter-digit {
   zoom: 1.4;
 }
+
 .negative-image {
   filter: invert(100%);
 }
@@ -383,7 +438,7 @@ ul {
   column-gap: 1em;
 }
 
-.section > hr {
+.section>hr {
   margin-top: 5px;
   margin-bottom: 25px;
 }
@@ -479,7 +534,7 @@ hr {
   grid-gap: 20px;
 }
 
-.portfolio-sections > div {
+.portfolio-sections>div {
   border: 1px solid var(--color-button);
   box-shadow: 2px 2px 10px var(--color-button);
 }
@@ -532,6 +587,7 @@ hr {
   .info {
     grid-area: 2 / 1 / 3 / 2;
   }
+
   .profile {
     grid-area: 1 / 1 / 2 / 2;
   }
@@ -546,24 +602,30 @@ hr {
   h1 {
     font-size: 28px;
   }
+
   h2 {
     font-size: 22px;
   }
+
   h6,
   p,
   ul {
     font-size: 12px;
   }
+
   .top-section {
     flex-direction: column;
   }
+
   .navbar-container,
   .row {
     align-items: center;
   }
+
   .category {
     column-count: 1;
   }
+
   .contact-row {
     margin-bottom: 40px;
   }
