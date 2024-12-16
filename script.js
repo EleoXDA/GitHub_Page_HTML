@@ -77,7 +77,7 @@ document
     if (bgColor.trim() == "#F2F2F2") {
       // Apply dark theme
       root.style.setProperty("--color", "#FFFFFF");
-      root.style.setProperty("--color-background", "#000000");
+      root.style.setProperty("--color-background", "#121212");
       root.style.setProperty("--color-text", "#F2F2F2");
       root.style.setProperty("--color-button", "#a9a9a9");
       root.style.setProperty("--color-transparent", "rgba(256,256,256,0.3)");
@@ -99,9 +99,9 @@ document
     } else {
       // Set a timeout to change the theme toggle image back to on after 500ms
       setTimeout(function () {
-        root.style.setProperty("--color", "#000000");
+        root.style.setProperty("--color", "#121212");
         root.style.setProperty("--color-background", "#F2F2F2");
-        root.style.setProperty("--color-text", "#000000");
+        root.style.setProperty("--color-text", "#121212");
         root.style.setProperty("--color-button", "#888888");
         root.style.setProperty("--color-transparent", "rgba(0,0,0,0.3)");
         root.style.setProperty(
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (theme === "dark") {
     // Apply dark theme
     root.style.setProperty("--color", "#F2F2F2");
-    root.style.setProperty("--color-background", "#000000");
+    root.style.setProperty("--color-background", "#121212");
     root.style.setProperty("--color-text", "#F2F2F2");
     root.style.setProperty("--color-button", "#a9a9a9");
     root.style.setProperty("--color-transparent", "rgba(256,256,256,0.3)");
@@ -176,9 +176,9 @@ document.addEventListener("DOMContentLoaded", function () {
     googledevicon.src = "images/google-developers-muted.png";
   } else {
     // Apply light theme (or default theme)
-    root.style.setProperty("--color", "#000000");
+    root.style.setProperty("--color", "#121212");
     root.style.setProperty("--color-background", "#F2F2F2");
-    root.style.setProperty("--color-text", "#000000");
+    root.style.setProperty("--color-text", "#121212");
     root.style.setProperty("--color-button", "#888888");
     root.style.setProperty("--color-transparent", "rgba(0,0,0,0.3)");
     root.style.setProperty(
@@ -272,14 +272,22 @@ codewarsicon.addEventListener("mouseout", function () {
 // Add event listener to window resize event
 window.addEventListener("resize", adjustColumnWidth);
 
-// Add event listener to all anchor elements with href starting with '#'
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+// Add event listener to all anchor elements with href starting with '#' but not exactly '#'
+document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
 
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
-    });
+    const target = this.getAttribute("href");
+    if (target.length > 1) { // Ensure it's not just '#'
+      const targetElement = document.querySelector(target);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+        });
+      } else {
+        console.warn(`No element found for selector: ${target}`);
+      }
+    }
   });
 });
 
