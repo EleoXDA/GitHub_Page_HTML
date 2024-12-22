@@ -278,7 +278,8 @@ document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach((anchor) => {
     e.preventDefault();
 
     const target = this.getAttribute("href");
-    if (target.length > 1) { // Ensure it's not just '#'
+    if (target.length > 1) {
+      // Ensure it's not just '#'
       const targetElement = document.querySelector(target);
       if (targetElement) {
         targetElement.scrollIntoView({
@@ -375,49 +376,71 @@ After this line the code is for injection of the content to HTML
 */
 
 let homeContent = `<h2>About Me</h2>
-    <p>I am a skilled frontend developer with over 4.5 years of experience in designing and building scalable, maintainable web applications. My expertise lies in modern frameworks like Vue.js, React, and Angular, combined with a strong foundation in JavaScript, TypeScript, and CSS frameworks such as Tailwind.CSS and SCSS.
-    </p><hr><p>My professional journey has been shaped by delivering impactful solutions, such as reusable component libraries, optimized workflows, and high-performance applications. I specialize in state management using Pinia and Redux, responsive design, and ensuring seamless user experiences through rigorous testing with tools like Cypress and Vitest.
-    </p><hr><p>Collaboration and mentorship have been integral to my career. I have successfully guided junior developers, improved team productivity, and enhanced project outcomes by promoting best practices in code quality and maintainability. My experience with CI/CD pipelines, GitHub Actions, and version control systems ensures efficient and streamlined deployments.
-    </p><hr><p>Transitioning from a scientific background, I bring strong analytical skills, problem-solving abilities, and attention to detail to every project. I am passionate about leveraging my technical expertise to create innovative, user-centric solutions that exceed expectations and drive measurable impact.
-    </p>`;
+<p>I am a skilled frontend developer with 6 years of experience in designing and building scalable, maintainable web applications. My expertise includes state management, responsive design, performance optimizations, and agile methodologies like Scrum and Kanban. I specialize in modern frameworks such as Vue.js, React, and Angular, supported by a strong foundation in JavaScript and TypeScript.</p>
+<hr><p>Throughout my career, I have delivered impactful solutions, including reusable component libraries, optimized workflows, and high-performance applications. I am proficient in state management using Pinia and Redux, and I ensure seamless user experiences through rigorous testing practices with tools like Cypress, Vitest, and Jest.</p>
+<hr><p>Collaboration and mentorship are integral to my work. I have successfully guided junior developers, streamlined code reviews, and enhanced team productivity. My experience with CI/CD pipelines, Git, Docker, and GitHub Actions ensures efficient deployments and high-quality deliverables.</p>
+<hr><p>With a background in scientific research, I bring strong analytical skills and a meticulous approach to problem-solving. I am passionate about leveraging my technical expertise to create innovative, user-centric solutions that exceed expectations and drive measurable impact.
+</p>`;
 
 let experienceContent = `<h2>Experience</h2>
-  <div>
-    <h3>Frontend Developer at stagedates GmbH</h3>
-    <p>• Designed and implemented a reusable Vue-Quasar component library, reducing development time for features.</p>
-    <p>• Reengineered critical workflows, including authorization and a revamped guest checkout flow, increasing signup rates and boosting sales conversions by 25% (reported after release of feature in production flow)</p>
-    <p>• Optimized Vue-Router & added responsive design, improving page load speed and securing role-based routes.</p>
-    <p>• Leveraged state management (Pinia) for admin and user workflows, ensuring seamless page transitions (e.g. agent-side checkout, authentication) with 0 data loss incidents reported thus far.</p>
-    <p>• Mentored 2 junior frontend developers, improving their technical skills and reducing code review turnaround.</p>
-    <p>• Utilized 20 unit tests (vitest) for release workflow in GitHub, with 32 more robust integration tests (Cypress).</p>
-    <p>• Developed messaging functionality for promoters to contact ticket owners, reducing customer support inquires.</p>
-    <p>• Improved repository structure and optimized Git workflows with caching, reducing deployment time by 30%.</p></div>
-  <hr>
-  <div>
-    <h3>Frontend Developer (Volunteer) at Digital Dignity - Am I in Porn?</h3>
-    <p>• Created a responsive web app using Vue.js and Nuxt.js to enhance online safety and usability on both mobile and desktop platforms.</p>
-    <p>• Optimized frontend to securely handle live image submissions while preventing misuse in workflows.</p>
-    <p>• Cooperated with backend team to integrate real-time face detection services, aiding accurate face identification.</p>
-    <p>• Worked closely with UI designers and backend engineers to deliver a secure and user-friendly platform.</p>
-  </div>
-<hr>
 <div>
-  <h3>Frontend Developer at koviko GmbH</h3>
-  <p>• Implemented a usage statistics page to help managers track staff language proficiency progression in real-time.</p>
-  <p>• Designed and integrated a greeting page with user-focused signup/sign-in flows and terms acceptance using Hive database.</p>
-  <p>• Fixed over 30 app bugs within 6 months, improving overall app stability and increasing user satisfaction ratings by 15%.</p>
-  <p>• Developed a notification system to inform users about app updates, increasing engagement with new features.</p>
+  <h3>Frontend Developer at ecostag GmbH (stagedates)</h3>
+  <p>• Designed and implemented a reusable Vue-Quasar component library, reducing development time for features.</p>
+  <p>• Reengineered critical workflows, including authorization and guest checkout, boosting sales conversions by 25%.</p>
+  <p>• Optimized Vue-Router & added responsive design, improving page load speed and securing role-based routes.</p>
+  <p>• Leveraged state management (Pinia) for admin and user workflows, ensuring seamless page transitions with 0 data loss incidents reported.</p>
+  <p>• Mentored 2 junior frontend developers, improving their technical skills and reducing code review turnaround.</p>
+  <p>• Implemented robust testing frameworks, leveraging Vitest and Cypress to ensure code quality and reliability.</p>
+  <p>• Improved repository structure and Git workflows with caching, reducing deployment time by 30%.</p>
 </div>
 <hr>
 <div>
-  <h3>Web Developer (Frontend) at Friedrich Schiller University of Jena</h3>
-  <p>• Designed and developed interactive frontend components for web apps using HTML, CSS, and vanilla JavaScript.</p>
-  <p>• Migrated static web pages to dynamic content using JavaScript, reducing maintenance overhead by 30%.</p>
-  <p>• Developed a student portal for managing course enrollments and grades, integrating with a MySQL database.</p>
-  <p>• Worked with academic staff to design a knowledge-sharing platform with dynamic updates using JavaScript.</p>
-  <p>• Enhanced website performance through image optimization/compression & improved SEO keyword targeting.</p>
-  <p>• Collaborated with academic stakeholders to identify key application needs and adjust the app appropriately.</p>
-  <p>• Created reusable HTML templates for university departments, standardizing design & reducing duplication.</p></div>`;
+  <h3>Frontend Developer (Volunteer) at Digital Dignity - Am I in Porn?</h3>
+  <p>• Created a responsive web app with NextJS, aiding in online safety, usable both on mobile and desktop.</p>
+  <p>• Optimized frontend to securely handle live image submissions while preventing misuse in workflows.</p>
+  <p>• Cooperated with backend team to integrate real-time face detection services, aiding accurate face identification.</p>
+  <p>• Worked closely with UI designers and backend engineers to deliver a secure and user-friendly platform.</p>
+</div>
+<hr>
+<div>
+  <h3>Frontend Developer at koviko GmbH</h3>
+  <p>• Added a statistics page to help managers track how workers were progressing in language in the application.</p>
+  <p>• Built a notification system to inform users about new app updates, increasing engagement with new features.</p>
+  <p>• Designed 14 Angular components based on Figma designs, making easy-to-manage code for future redesigns.</p>
+  <p>• Updated the Jasmine test workflows and adapted new unit tests with Jest for each added feature in the repo.</p>
+</div>
+<hr>
+<div>
+  <h3>Frontend Developer at Friedrich Schiller University of Jena</h3>
+  <p>• Migrated legacy Vue 2 codebase to Vue 3, for better modularity and maintainability.</p>
+  <p>• Designed and implemented reusable Vue components for interactive dashboards and academic portals.</p>
+  <p>• Integrated backend APIs using Axios, employing Vuex for managing application state.</p>
+  <p>• Optimized website performance by reducing JavaScript bundle size by 40% through tree-shaking techniques.</p>
+  <p>• Improved accessibility by achieving WCAG compliance through ARIA attributes and semantic HTML.</p>
+  <p>• Led efforts to implement Cypress-based integration tests, ensuring robust end-to-end functionality.</p>
+</div>
+<hr>
+<div>
+  <h3>Web Developer (Frontend) at RecruIT</h3>
+  <p>• Developed and maintained frontend components using Vue 2, implementing Vuex for state management.</p>
+  <p>• Built an admin dashboard for analytics, incorporating data visualizations with Chart.js and Vue Router.</p>
+  <p>• Enhanced testing workflows with Jest and added unit tests to improve codebase reliability.</p>
+  <p>• Standardized project structures and reusable components, reducing development time for new features.</p>
+</div>
+<hr>
+<div>
+  <h3>Junior Web Developer (Frontend) at RecruIT</h3>
+  <p>• Built dynamic web applications using Vue JavaScript framework (Vue 2) and integrated RESTful APIs.</p>
+  <p>• Optimized website performance, reducing loading time by 35% through image compression and lazy loading.</p>
+  <p>• Implemented responsive designs, ensuring compatibility across mobile, tablet, and desktop devices.</p>
+  <p>• Worked closely with clients to gather requirements and deliver solutions tailored to their needs.</p>
+</div>
+<hr>
+<div>
+  <h3>Web Developer (Intern) at RecruIT</h3>
+  <p>• Assisted in the development of interactive frontend components using HTML, CSS, and JavaScript.</p>
+  <p>• Created reusable UI templates to standardize design across internal tools and reduce development time.</p>
+</div>`;
 
 let educationContent = `<h2>Education</h2>
 <div>
